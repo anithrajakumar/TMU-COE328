@@ -1,0 +1,129 @@
+# -------------------------------------------------------------------------- #
+#
+# Copyright (C) 1991-2013 Altera Corporation
+# Your use of Altera Corporation's design tools, logic functions 
+# and other software and tools, and its AMPP partner logic 
+# functions, and any output files from any of the foregoing 
+# (including device programming or simulation files), and any 
+# associated documentation or information are expressly subject 
+# to the terms and conditions of the Altera Program License 
+# Subscription Agreement, Altera MegaCore Function License 
+# Agreement, or other applicable license agreement, including, 
+# without limitation, that your use is for the sole purpose of 
+# programming logic devices manufactured by Altera and sold by 
+# Altera or its authorized distributors.  Please refer to the 
+# applicable agreement for further details.
+#
+# -------------------------------------------------------------------------- #
+#
+# Quartus II 32-bit
+# Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
+# Date created = 16:54:56  November 12, 2024
+#
+# -------------------------------------------------------------------------- #
+#
+# Notes:
+#
+# 1) The default values for assignments are stored in the file:
+#		lab6_assignment_defaults.qdf
+#    If this file doesn't exist, see file:
+#		assignment_defaults.qdf
+#
+# 2) Altera recommends that you do not modify this file. This
+#    file is updated automatically by the Quartus II software
+#    and any changes you make may be lost or overwritten.
+#
+# -------------------------------------------------------------------------- #
+
+
+set_global_assignment -name FAMILY "Cyclone II"
+set_global_assignment -name DEVICE EP2C35F672C6
+set_global_assignment -name TOP_LEVEL_ENTITY Final_Desgin_p3
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION "13.0 SP1"
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "16:54:56  NOVEMBER 12, 2024"
+set_global_assignment -name LAST_QUARTUS_VERSION "13.0 SP1"
+set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
+set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
+set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
+set_global_assignment -name ERROR_CHECK_FREQUENCY_DIVISOR 1
+set_global_assignment -name EDA_SIMULATION_TOOL "ModelSim-Altera (Verilog)"
+set_global_assignment -name EDA_OUTPUT_DATA_FORMAT "VERILOG HDL" -section_id eda_simulation
+set_global_assignment -name STRATIX_DEVICE_IO_STANDARD "3.3-V LVTTL"
+set_global_assignment -name SIMULATION_MODE FUNCTIONAL
+set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST ON -section_id eda_simulation
+set_global_assignment -name VECTOR_OUTPUT_FORMAT VWF
+set_location_assignment PIN_V2 -to data_in
+set_location_assignment PIN_V1 -to Enable
+set_location_assignment PIN_W26 -to clk
+set_location_assignment PIN_Y23 -to student_id[6]
+set_location_assignment PIN_AA25 -to student_id[5]
+set_location_assignment PIN_AA26 -to student_id[4]
+set_location_assignment PIN_Y26 -to student_id[3]
+set_location_assignment PIN_Y25 -to student_id[2]
+set_location_assignment PIN_U22 -to student_id[1]
+set_location_assignment PIN_W24 -to student_id[0]
+set_location_assignment PIN_C13 -to Reg_A[7]
+set_location_assignment PIN_AC13 -to Reg_A[6]
+set_location_assignment PIN_AD13 -to Reg_A[5]
+set_location_assignment PIN_AF14 -to Reg_A[4]
+set_location_assignment PIN_U4 -to Reg_B[7]
+set_location_assignment PIN_U3 -to Reg_B[6]
+set_location_assignment PIN_T7 -to Reg_B[5]
+set_location_assignment PIN_P2 -to Reg_B[4]
+set_location_assignment PIN_AF10 -to RS_resultf[6]
+set_location_assignment PIN_AB12 -to RS_resultf[5]
+set_location_assignment PIN_AC12 -to RS_resultf[4]
+set_location_assignment PIN_AD11 -to RS_resultf[3]
+set_location_assignment PIN_AE11 -to RS_resultf[2]
+set_location_assignment PIN_V14 -to RS_resultf[1]
+set_location_assignment PIN_V13 -to RS_resultf[0]
+set_location_assignment PIN_V20 -to LS_result[6]
+set_location_assignment PIN_V21 -to LS_result[5]
+set_location_assignment PIN_W21 -to LS_result[4]
+set_location_assignment PIN_Y22 -to LS_result[3]
+set_location_assignment PIN_AA24 -to LS_result[2]
+set_location_assignment PIN_AA23 -to LS_result[1]
+set_location_assignment PIN_AB24 -to LS_result[0]
+set_location_assignment PIN_AE14 -to Reg_A[3]
+set_location_assignment PIN_P25 -to Reg_A[2]
+set_location_assignment PIN_N26 -to Reg_A[1]
+set_location_assignment PIN_N25 -to Reg_A[0]
+set_location_assignment PIN_P1 -to Reg_B[3]
+set_location_assignment PIN_N1 -to Reg_B[2]
+set_location_assignment PIN_A13 -to Reg_B[1]
+set_location_assignment PIN_B13 -to Reg_B[0]
+set_location_assignment PIN_G26 -to reset
+set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
+set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
+set_global_assignment -name VHDL_FILE reg.vhd
+set_global_assignment -name VECTOR_WAVEFORM_FILE Regsistor_Waveform.vwf
+set_global_assignment -name VHDL_FILE signed_sseg.vhd
+set_global_assignment -name VHDL_FILE unsigned_sseg.vhd
+set_global_assignment -name VHDL_FILE boolean_sseg.vhd
+set_global_assignment -name VECTOR_WAVEFORM_FILE Boolean_sseg_waveform.vwf
+set_global_assignment -name VHDL_FILE FSM.vhd
+set_global_assignment -name VHDL_FILE decod3to8.vhd
+set_global_assignment -name VHDL_FILE ALU_unit.vhd
+set_global_assignment -name VHDL_FILE ALU_unit_p2.vhd
+set_global_assignment -name VHDL_FILE ALU_unit_p3.vhd
+set_global_assignment -name VECTOR_WAVEFORM_FILE ALU_Unit_Waveform.vwf
+set_global_assignment -name VECTOR_WAVEFORM_FILE ALU_Unit_Waveform_PT2.vwf
+set_global_assignment -name BDF_FILE Final_Desgin.bdf
+set_global_assignment -name BDF_FILE Final_Desgin_p2.bdf
+set_global_assignment -name BDF_FILE Final_Desgin_p3.bdf
+set_global_assignment -name VECTOR_WAVEFORM_FILE Final_Design_p1_WaveForm.vwf
+set_global_assignment -name VECTOR_WAVEFORM_FILE Final_Design_p3_WaveForm.vwf
+set_global_assignment -name CDF_FILE output_files/pin_planner_p1_p2.cdf
+set_location_assignment PIN_AF10 -to bool[6]
+set_location_assignment PIN_AB12 -to bool[5]
+set_location_assignment PIN_AC12 -to bool[4]
+set_location_assignment PIN_AD11 -to bool[3]
+set_location_assignment PIN_AE11 -to bool[2]
+set_location_assignment PIN_V14 -to bool[1]
+set_location_assignment PIN_V13 -to bool[0]
+set_global_assignment -name VECTOR_WAVEFORM_FILE Final_Design_p2_WaveForm.vwf
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
+set_global_assignment -name INCREMENTAL_VECTOR_INPUT_SOURCE /home/student1/a5rajaku/Desktop/coe328/lab6/Final_Design_p3_WaveForm.vwf
