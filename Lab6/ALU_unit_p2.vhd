@@ -1,0 +1,65 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.all;
+USE ieee.std_logic_unsigned.all;
+USE ieee.numeric_std.all;
+
+entity ALU_unit_p2 is
+    port (
+		  Reg1    : in std_logic_vector(7 downto 0);  -- 8-bit input A (from Reg1)
+        Reg2    : in std_logic_vector(7 downto 0);  -- 8-bit input B (from Reg2)
+        clk     : in std_logic;
+        reset   : in std_logic;  -- Reset signal
+        opcode  : in std_logic_vector(7 downto 0);  -- 8-bit opcode from Decoder
+		  LS_result : out std_logic_vector(3 downto 0);
+		  RS_result : out std_logic_vector(3 downto 0)
+    );
+end ALU_unit_p2;
+
+architecture calculation of ALU_unit_p2 is
+	SIGNAL Result, Temp_Reg: STD_LOGIC_VECTOR(7 DOWNTO 0) ;
+begin
+    process (clk, reset)
+    begin
+        if reset = '0' then
+            Result <= "00000000";  -- Reset Result to "00000000"
+        elsif (clk'EVENT AND clk = '1') then
+            case opcode is
+                when "00000001" => -- [1] Odd Bit Replacement -- 
+						  Result <= Reg1;
+						  Result(6) <= Reg2(6);
+						  Result(4) <= Reg2(4);
+						  Result(2) <= Reg2(2);
+						  Result(0) <= Reg2(0);
+                when "00000010" => -- [2] NAND Unit --
+						  Result <= reg1 NAND reg2;
+                when "00000100" => -- [3] (A + B - 5) Unit -- 
+                    Result <= (reg1 + reg2) - "00000101";
+                when "00001000" => -- [4] 2's comp of B Unit
+                    Result <= NOT(reg2) + "00000001";
+                when "00010000" => -- [5] Invert Even Bits of B Unit
+						  Result <= reg2;
+                when "00100000" => -- [6] shifting Unit --
+						  Temp_Reg(7) <= Reg1(5);
+						  Temp_Reg(6) <= Reg1(4);
+						  Temp_Reg(5) <= Reg1(3);
+						  Temp_Reg(4) <= Reg1(2);
+						  Temp_Reg(3) <= Reg1(1);
+						  Temp_Reg(2) <= Reg1(0);
+						  Temp_Reg(1) <= '1';
+						  Temp_Reg(0) <= '1';
+                    Result <= Temp_Reg;
+                when "01000000" => -- [7] Null output Unit --
+                    Result <= "--------";
+                when "10000000" => -- [8] OR Unit --
+                    Result <= NOT(reg1) + 00000001;
+                when others =>
+            end case;
+        end if;
+		   
+			-- Spliting the result into two 4 bit results --
+			LS_result <= Result(7 downto 4);
+			RS_result <= Result(3 downto 0);
+			
+    end process;
+
+end calculation;

@@ -1,0 +1,56 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.all;
+USE ieee.std_logic_unsigned.all;
+USE ieee.numeric_std.all;
+
+entity ALU_unit is
+    port (
+        clk     : in std_logic;
+        res     : in std_logic;  -- Reset signal
+        Reg1    : in std_logic_vector(7 downto 0);  -- 8-bit input A (from Reg1)
+        Reg2    : in std_logic_vector(7 downto 0);  -- 8-bit input B (from Reg2)
+        opcode  : in std_logic_vector(7 downto 0);  -- 8-bit opcode from Decoder
+        Result  : out std_logic_vector(7 downto 0)  -- 8-bit Result
+    );
+end ALU_unit;
+
+architecture calculation of ALU_unit is
+begin
+    process (clk, res)
+    begin
+        if res = '1' then
+            Result <= "00000000";  -- Reset Result to "00000000"
+        elsif (clk'EVENT AND clk = '1') then
+            case opcode is
+                -- Addition (Reg1 + Reg2)
+                when "00000001" =>
+                    -- Do addition for Reg1 and Reg2
+                -- Subtraction (Reg1 - Reg2)
+                when "00000010" =>
+                    -- Do subtraction for Reg1 and Reg2
+                -- Inverse (bitwise NOT of Reg1)
+                when "00000100" =>
+                    -- Do inverse
+                -- NAND (Reg1 NAND Reg2)
+                when "00001000" =>
+                    -- Do Boolean NAND
+                -- NOR (Reg1 NOR Reg2)
+                when "00010000" =>
+                    -- Do Boolean NOR
+                -- AND (Reg1 AND Reg2)
+                when "00100000" =>
+                    -- Do Boolean AND
+                -- XOR (Reg1 XOR Reg2)
+                when "01000000" =>
+                    -- Do Boolean XOR
+                -- OR (Reg1 OR Reg2)
+                when "10000000" =>
+                    -- Do Boolean OR
+                -- Default case: Do nothing
+                when others =>
+                    -- Don’t care, do nothing
+            end case;
+        end if;
+    end process;
+
+end calculation;
