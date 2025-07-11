@@ -1,0 +1,19 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.all;
+
+ENTITY C IS
+    PORT (S_in 		 : IN STD_LOGIC_VECTOR(3 DOWNTO 0) ;
+			 L_out 		 : OUT STD_LOGIC_VECTOR(3 DOWNTO 0));
+END C;
+
+ARCHITECTURE Behavior OF C IS
+BEGIN
+    PROCESS (S_in)
+    BEGIN
+	 L_out(3) <= S_in(2) AND S_in(1) AND (NOT S_in(0));
+	 L_out(2) <= ((NOT S_in(3)) AND (NOT S_in(2)) AND (NOT S_in(1)) AND (NOT S_in(0))) OR ((S_in(2)) AND S_in(0));
+	 L_out(1) <= (((NOT S_in(1)) AND S_in(2)) OR ((NOT S_in(2)) AND S_in(1) AND S_in(0)));
+	 L_out(0) <= (((NOT S_in(1)) AND (S_in(2))) OR((NOT S_in(2)) AND (S_in(1)) AND (S_in(0))));
+      
+    END PROCESS ;
+END Behavior ;

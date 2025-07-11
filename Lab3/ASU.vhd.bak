@@ -1,0 +1,41 @@
+LIBRARY ieee ;
+USE ieee.std_logic_1164.all ;
+USE ieee.std_logic_unsigned.all ;
+
+ENTITY ASU IS
+    PORT (Cin            : IN STD_LOGIC; -- Determines whether it will add(Cin = 0) or subtract(Cin = 1) --
+			 X, Y           : IN STD_LOGIC_VECTOR(3 DOWNTO 0); -- Takes input of two vectors with the size of 4 bits (0, 1, 2, 3)--
+          S              : OUT STD_LOGIC_VECTOR(3 DOWNTO 0); -- Outputs a vector with a size of 4 bits (0, 1, 2, 3) --
+          Cout, Overflow : OUT STD_LOGIC ); -- Cout used to be able to carry out into another adder/subtracter --
+														  -- Overflow used to help negate the incorrect output or if we cant represnt the answer --
+END ASU ;
+
+ARCHITECTURE Behavior OF ASU IS
+    SIGNAL Sum, Y2comp : STD_LOGIC_VECTOR(4 DOWNTO 0); -- 4 instead of 3 incase of possiblity of carry out;
+BEGIN
+	 process(X, Y, Cin)-- Expecting change in these variables --
+	 BEGIN
+		 -- Checking to see if we are adding --
+		 IF(Cin = '0') THEN
+			-- Turns each vector into 5 bit to account for carrying --
+			Sum <= ('0' & X) + ('0' & Y) + Cin ; 
+			-- Stores away the first 4 bits for the sum --
+			S <= Sum(3 DOWNTO 0) ;
+			-- carries out the 5th bit for carry out --
+			Cout <= Sum(4);
+			-- Checking to see if its subtracter --
+			Overflow <= '0';
+		 ELSIF(Cin = '1') THEN
+			-- subtracts two numbers using two's complement 
+			Sum <= ('0' & X) + (NOT('0' & Y)) + Cin;
+			-- Stores away the first 4 bits for the sum --
+			S <= Sum(3 DOWNTO 0) ;
+			-- carries out the 5th bit for carry out --
+			Cout <= Sum(4);
+			-- Saving the 2s complement  of Y --
+			Y2comp <= (NOT('0' & Y))+ Cin;
+			-- Help determine if a carry out occurred -- 
+			Overflow <= Sum(4) XOR X(3) XOR Y2comp(3) XOR Sum(3) ;
+		 END IF;
+	 END process;
+END Behavior ;
