@@ -1,0 +1,125 @@
+|combined
+current_state[7] <= sseg:inst6.leds[7]
+current_state[6] <= sseg:inst6.leds[6]
+current_state[5] <= sseg:inst6.leds[5]
+current_state[4] <= sseg:inst6.leds[4]
+current_state[3] <= sseg:inst6.leds[3]
+current_state[2] <= sseg:inst6.leds[2]
+current_state[1] <= sseg:inst6.leds[1]
+data_in => machine:inst.data_in
+clk => machine:inst.clk
+reset => machine:inst.reset
+student_id[7] <= sseg:inst5.leds[7]
+student_id[6] <= sseg:inst5.leds[6]
+student_id[5] <= sseg:inst5.leds[5]
+student_id[4] <= sseg:inst5.leds[4]
+student_id[3] <= sseg:inst5.leds[3]
+student_id[2] <= sseg:inst5.leds[2]
+student_id[1] <= sseg:inst5.leds[1]
+
+
+|combined|sseg:inst6
+bcd[0] => Mux0.IN19
+bcd[0] => Mux1.IN19
+bcd[0] => Mux2.IN19
+bcd[0] => Mux3.IN19
+bcd[0] => Mux4.IN19
+bcd[0] => Mux5.IN19
+bcd[0] => Mux6.IN19
+bcd[1] => Mux0.IN18
+bcd[1] => Mux1.IN18
+bcd[1] => Mux2.IN18
+bcd[1] => Mux3.IN18
+bcd[1] => Mux4.IN18
+bcd[1] => Mux5.IN18
+bcd[1] => Mux6.IN18
+bcd[2] => Mux0.IN17
+bcd[2] => Mux1.IN17
+bcd[2] => Mux2.IN17
+bcd[2] => Mux3.IN17
+bcd[2] => Mux4.IN17
+bcd[2] => Mux5.IN17
+bcd[2] => Mux6.IN17
+bcd[3] => Mux0.IN16
+bcd[3] => Mux1.IN16
+bcd[3] => Mux2.IN16
+bcd[3] => Mux3.IN16
+bcd[3] => Mux4.IN16
+bcd[3] => Mux5.IN16
+bcd[3] => Mux6.IN16
+leds[7] <= Mux6.DB_MAX_OUTPUT_PORT_TYPE
+leds[6] <= Mux5.DB_MAX_OUTPUT_PORT_TYPE
+leds[5] <= Mux4.DB_MAX_OUTPUT_PORT_TYPE
+leds[4] <= Mux3.DB_MAX_OUTPUT_PORT_TYPE
+leds[3] <= Mux2.DB_MAX_OUTPUT_PORT_TYPE
+leds[2] <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
+leds[1] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|combined|machine:inst
+data_in => yfsm.OUTPUTSELECT
+data_in => yfsm.OUTPUTSELECT
+data_in => yfsm.OUTPUTSELECT
+data_in => yfsm.OUTPUTSELECT
+data_in => yfsm.OUTPUTSELECT
+data_in => yfsm.OUTPUTSELECT
+data_in => yfsm.OUTPUTSELECT
+data_in => yfsm.OUTPUTSELECT
+data_in => yfsm.OUTPUTSELECT
+data_in => yfsm.OUTPUTSELECT
+data_in => yfsm.OUTPUTSELECT
+data_in => yfsm.OUTPUTSELECT
+data_in => yfsm.OUTPUTSELECT
+data_in => yfsm.OUTPUTSELECT
+data_in => yfsm.OUTPUTSELECT
+data_in => yfsm.OUTPUTSELECT
+clk => yfsm~9.DATAIN
+reset => yfsm~11.DATAIN
+student_id[0] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+student_id[1] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+student_id[2] <= student_id.DB_MAX_OUTPUT_PORT_TYPE
+student_id[3] <= student_id[3].DB_MAX_OUTPUT_PORT_TYPE
+current_state[0] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+current_state[1] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+current_state[2] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+current_state[3] <= <GND>
+
+
+|combined|sseg:inst5
+bcd[0] => Mux0.IN19
+bcd[0] => Mux1.IN19
+bcd[0] => Mux2.IN19
+bcd[0] => Mux3.IN19
+bcd[0] => Mux4.IN19
+bcd[0] => Mux5.IN19
+bcd[0] => Mux6.IN19
+bcd[1] => Mux0.IN18
+bcd[1] => Mux1.IN18
+bcd[1] => Mux2.IN18
+bcd[1] => Mux3.IN18
+bcd[1] => Mux4.IN18
+bcd[1] => Mux5.IN18
+bcd[1] => Mux6.IN18
+bcd[2] => Mux0.IN17
+bcd[2] => Mux1.IN17
+bcd[2] => Mux2.IN17
+bcd[2] => Mux3.IN17
+bcd[2] => Mux4.IN17
+bcd[2] => Mux5.IN17
+bcd[2] => Mux6.IN17
+bcd[3] => Mux0.IN16
+bcd[3] => Mux1.IN16
+bcd[3] => Mux2.IN16
+bcd[3] => Mux3.IN16
+bcd[3] => Mux4.IN16
+bcd[3] => Mux5.IN16
+bcd[3] => Mux6.IN16
+leds[7] <= Mux6.DB_MAX_OUTPUT_PORT_TYPE
+leds[6] <= Mux5.DB_MAX_OUTPUT_PORT_TYPE
+leds[5] <= Mux4.DB_MAX_OUTPUT_PORT_TYPE
+leds[4] <= Mux3.DB_MAX_OUTPUT_PORT_TYPE
+leds[3] <= Mux2.DB_MAX_OUTPUT_PORT_TYPE
+leds[2] <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
+leds[1] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
